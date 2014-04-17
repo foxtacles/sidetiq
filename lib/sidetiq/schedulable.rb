@@ -34,7 +34,7 @@ module Sidetiq
       end
 
       def recurrence(options = {}, &block) # :nodoc:
-        return if ENV["SIDETIQ_DISABLE_RECURRENCE"]
+        return if ENV["SIDETIQ_DISABLE_RECURRENCE"] == "true"
         schedule.instance_eval(&block)
         schedule.set_options(options)
       end
